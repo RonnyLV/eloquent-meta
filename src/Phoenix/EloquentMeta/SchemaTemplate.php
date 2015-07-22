@@ -13,13 +13,12 @@ class SchemaTemplate extends Migration
     public function up()
     {
         Schema::create('__meta__', function(Blueprint $table) {
-            $table->increments('id');
-            $table->integer('metable_id')->unsigned();
-            $table->string('metable_type', 255);
-            $table->string('key', 128);
-            $table->text('value');
+            $table->unsignedInteger('id', true);
+            $table->unsignedInteger('source_id');
+            $table->unsignedTinyInteger('key');
+            $table->longText('value');
 
-            $table->index('metable_id');
+            $table->index([ 'source_id' ]);
             $table->index('key');
         });
     }

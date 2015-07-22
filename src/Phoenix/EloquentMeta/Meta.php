@@ -28,8 +28,7 @@ class Meta extends Model
      * @var array
      */
     protected $fillable = [
-        'metable_id',
-        'metable_type',
+        'source_id',
         'key',
         'value',
     ];
@@ -47,9 +46,9 @@ class Meta extends Model
      * @var array
      */
     public static $rules = [
-        'metable_id'   => 'required|integer',
-        'metable_type' => 'required',
-        'key'          => 'required|max:100',
+        'source_id'   => 'required|integer',
+        'source_type' => 'required',
+        'key'          => 'required|integer',
         'value'        => 'required',
     ];
 
